@@ -8,9 +8,70 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var wynik = 0
+    @State private var Fposition = "1"
+    @State private var Sposition = "2"
+    @State private var Tposition = "3"
+    
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        
+        ZStack {
+            Image("background").ignoresSafeArea()
+        VStack{
+            
+            Spacer()
+            Text("Slotsy u Xeona")
+                .font(.largeTitle)
+                .foregroundColor(Color.white)
+            Spacer()
+            HStack{
+                Spacer()
+                Image(Fposition)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                Spacer()
+                Image(Sposition)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                Spacer()
+                Image(Tposition)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                Spacer()
+            }
+            Spacer()
+            Text(String(wynik))
+                .font(.largeTitle)
+                .foregroundColor(Color.white)
+                .padding(.bottom, 2.0)
+//            Spacer()
+            Button {
+                let Frandom = Int.random(in: 1...3)
+                Fposition = String(Frandom)
+                let Srandom = Int.random(in: 1...3)
+                Sposition = String(Srandom)
+                let Trandom = Int.random(in: 1...3)
+                Tposition = String(Trandom)
+                
+                if (Frandom == 1) && (Srandom == 1) && (Trandom == 1){
+                    wynik += 1
+                }
+                else if (Frandom == 2) && (Srandom == 2) && (Trandom == 2){
+                    wynik += 2
+                }
+                else if (Frandom == 3) && (Srandom == 3) && (Trandom == 3){
+                    wynik += 3
+                }
+            } label: {
+                Text("Roll")
+                    .font(.largeTitle)
+                    .foregroundColor(Color.white)
+            }
+            Spacer()
+        }
+        }
     }
 }
 
