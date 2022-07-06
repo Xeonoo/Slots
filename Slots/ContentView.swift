@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var wynik = 0
+    @State var wynik = 1000
     @State private var Fposition = "1"
     @State private var Sposition = "2"
     @State private var Tposition = "3"
@@ -41,11 +41,11 @@ struct ContentView: View {
                     .aspectRatio(contentMode: .fit)
                 Spacer()
             }
-            Spacer()
-            Text(String(wynik))
+//            Spacer()
+            Text("Hajs" + " " + String(wynik))
                 .font(.largeTitle)
                 .foregroundColor(Color.white)
-                .padding(.bottom, 2.0)
+                .padding(.vertical, 56.0)
 //            Spacer()
             Button {
                 let Frandom = Int.random(in: 1...3)
@@ -56,13 +56,16 @@ struct ContentView: View {
                 Tposition = String(Trandom)
                 
                 if (Frandom == 1) && (Srandom == 1) && (Trandom == 1){
-                    wynik += 1
+                    wynik += 100
                 }
                 else if (Frandom == 2) && (Srandom == 2) && (Trandom == 2){
-                    wynik += 2
+                    wynik += 500
                 }
                 else if (Frandom == 3) && (Srandom == 3) && (Trandom == 3){
-                    wynik += 3
+                    wynik += 1000
+                }
+                else {
+                    wynik -= 10
                 }
             } label: {
                 Text("Roll")
